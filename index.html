@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Closed is month February</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+          body {
+               font-family: "Poppins", serif;
+               height: 100vh;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               margin: 0;
+               background-color: wheat;
+               background-repeat: no-repeat;
+               background-size: cover;
+               color: rgb(109, 73, 6);
+          }
+
+          .typing::after {
+               content: '|';
+               animation: blink 0.8s infinite;
+          }
+
+          @keyframes blink {
+               50% {
+                    opacity: 0;
+               }
+          }
+
+          .ayank {
+               color: brown;
+          }
+
+          p {
+               margin: 0%;
+               padding: 0%;
+          }
+     </style>
+</head>
+
+<body>
+     <div class="container text-center my-auto">
+          <img src="peluk.gif" width="90">
+          <h1 id="titles" class="typing"></h1>
+          <div id="asking">
+               <form action="main.html" method="post">
+                    <p style="display: none;">Ngak terasa di tahun 2025 ini,</p>
+                    <p style="display: none;">kita udah masuk di bulan 3.</p>
+                    <p style="display: none;">semoga kita langgeng terus yahh sayanggg...</p>
+                    <p style="display: none;">aku sangat mencintaimu, dengan setulus hati</p>
+                    <p style="display: none;">dan aku tidak akan pernah
+                         menghianatimu...</p>
+                    <p style="display: none;">dan aku selalu berdoa kepada Tuhan,</p>
+                    <p style="display: none;" class="font-weight-bold">"Tuhan lindungi Elpin
+                         selalu,
+                         dalam
+                         setiap langkahnya..."</p>
+                    <p style="display: none;" class="font-weight-bold"><b>I Love You so much🥰</b></p>
+                    <p style="display: none;" class="font-weight-bold">ummachh😘😘😘😘</p>
+                    <input type="submit" class="btn btn-secondary font-weight-bold mx-auto" style="display: none;"
+                         value="Lanjut">
+               </form>
+          </div>
+     </div>
+
+     <audio id="bgMusic" loop>
+          <source
+               src="https://media-hosting.imagekit.io//57d9b82542f24b31/wannabeyours.mp4?Expires=1834834240&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=fLWj0s-DFN0BYhACzcL2Vt6ns3P8OmnzOirGVSK1ntGY0QYL0c7qPjnfzsffd9Fz9SIj71ykx1RLCoDfTwvwTMBGnRQmkpfuTMp5ooR3SNK3Ql-9KF254A2SyHAzKUGdd~v7NsMUpUILrykwbM-B-hU0C31HZrhgvLd4-4~wk7xdS-TZ~pgfHGWuwqZR3-ya1adDQQ6hLAcAiRPQsy2H~4b4lbhdbXSnCdWjCuxb7zMHdIwEqJk3vwvyqHhoY4-HNtlTJXoCj54FPpqSaLBrcCkNsz-d3oUxUztdeYggJVROeUvEiaf1nZ5IlQdm0vrJzbtE93zAZnXHfEE26VZlzg__"
+               type="video/mp4">
+     </audio>
+
+     <script>
+
+
+          const elements = [
+               "Hi sayanggg",
+               ...Array.from(document.querySelectorAll("#asking p")),
+               document.querySelector("#asking input")
+          ];
+
+          let currentIndex = 0;
+
+          function typeText(element, text, callback) {
+               let index = 0;
+               element.innerHTML = "";
+               function typing() {
+                    if (index < text.length) {
+                         element.innerHTML += text[index];
+                         index++;
+                         setTimeout(typing, 100);
+                    } else {
+                         setTimeout(callback, 500);
+                    }
+               }
+               typing();
+          }
+
+          function showNext() {
+               if (currentIndex < elements.length) {
+                    const currentElement = elements[currentIndex];
+
+                    if (typeof currentElement === 'string') {
+                         const titleElement = document.getElementById("titles");
+                         typeText(titleElement, currentElement, showNext);
+                    } else {
+                         currentElement.style.display = "block";
+                         typeText(currentElement, currentElement.innerHTML, showNext);
+                    }
+
+                    currentIndex++;
+               }
+          }
+
+          window.onload = showNext;
+     </script>
+
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+          integrity="sha384-UO2eT0CpHqdSJQ6Jty5KVphtPhzJ9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+          crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous"></script>
+</body>
+
+</html>
