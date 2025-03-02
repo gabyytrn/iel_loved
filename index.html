@@ -2,22 +2,89 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>MyLove</title>
-     <style>
-          img {
-               width: 100%;
-               max-width: 100%;
-               height: auto;
-               display: block;
-               margin: auto;
-          }
-     </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLoves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            text-align: center;
+            background-color: #ffdde1; /* Warna latar belakang soft */
+            overflow: hidden; /* Agar animasi tidak keluar dari layar */
+            position: relative;
+            height: 100vh;
+        }
+
+        p {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #d63384; /* Warna teks */
+        }
+
+        img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animasi Love */
+        .heart {
+            position: absolute;
+            color: rgba(255, 0, 102, 0.7);
+            font-size: 16px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-     <img src="IMG-20250223-WA0017(1).jpg" alt="My Love">
+    <p>Aku sangat mencintaimu Elpin😘😘</p>
+    <img src="IMG-20250223-WA0017(1).jpg" alt="My Love">
+
+    <!-- Script untuk membuat love kecil bergerak -->
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart");
+            document.body.appendChild(heart);
+
+            // Posisi random di layar
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "100vh";
+            heart.style.fontSize = Math.random() * 15 + 10 + "px";
+
+            // Hapus elemen setelah animasi selesai
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
 </body>
 
 </html>
